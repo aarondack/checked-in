@@ -1,4 +1,4 @@
-<p align="center"><img src="./checked-in.png" height="125" /></p>
+<p align="center"><img src="./checked-in.png" height="150" width="300" /></p>
 
 > ### Schedule your flight check-ins from the comfort of your command line
 
@@ -19,8 +19,11 @@ In order to use checked-in make sure that you have Node v7.6.0 or greater
 # Options
 
 `-c <confirmationNumber>` or `--confirmationNumber <confirmationNumber>` 
+<br>
 `-d <date>` or `--date <date>` (Currently needs to be a ISO 8601 string)
+<br>
 `-l <lastName>` or `--lastName <lastName>`
+<br>
 `-f <firstName>` or `--firstName <firstName>`
 
 ### Example Usage
