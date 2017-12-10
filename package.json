@@ -1,0 +1,21 @@
+{
+  "name": "checked-in",
+  "version": "1.0.0",
+  "description": "Check in to your southwest flights",
+  "main": "index.js",
+  "repository": "git@github.com:aarondack/checked-in.git",
+  "author": "Aaron Dack",
+  "license": "MIT",
+  "bin": {
+    "checked-in": "./bin/checked-in.js"
+  },
+  "dependencies": {
+    "chalk": "^2.3.0",
+    "luxon": "^0.2.7",
+    "puppeteer": "^0.13.0"
+  },
+  "devDependencies": {
+    "commander": "^2.12.2",
+    "node-schedule": "^1.2.5"
+  }
+}
