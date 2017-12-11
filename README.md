@@ -25,7 +25,9 @@ In order to use checked-in make sure that you have Node v7.6.0 or greater
 `-l <lastName>` or `--lastName <lastName>`
 <br>
 `-f <firstName>` or `--firstName <firstName>`
+<br>
+`-p <phone>` or `--phoneNumber <phone>``
 
 ### Example Usage
 
-`checked-in -c ABC123 -f John -l Smith -d 02/20/18 06:15:00T08:30:00`
+`checked-in -c ABC123 -f John -l Smith -p 7503521234 -d 02/20/18 06:15:00T08:30:00`
