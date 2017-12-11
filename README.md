@@ -26,7 +26,7 @@ In order to use checked-in make sure that you have Node v7.6.0 or greater
 <br>
 `-f <firstName>` or `--firstName <firstName>`
 <br>
-`-p <phone>` or `--phoneNumber <phone>``
+`-p <phone>` or `--phoneNumber <phone>`
 
 ### Example Usage
 
