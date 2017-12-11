@@ -12,7 +12,7 @@ cli
   .option("-d, --date <date>", "Date of flight")
   .option("-f, --firstName <name>", "Your first name")
   .option("-l, --lastName <name>", "Your last name")
-  .option("-p, --phoneNumber <num>", "Your phone number")
+  .option("-p, --phoneNumber <phone>", "Your phone number")
   .parse(process.argv);
 
 checkIn(cli);
