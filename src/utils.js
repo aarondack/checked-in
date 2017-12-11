@@ -18,5 +18,6 @@ function sleep(ms) {
 module.exports = {
   SOUTHWEST_URL,
   error,
+  success,
   sleep
 };

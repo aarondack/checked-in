@@ -1,8 +1,6 @@
 #!/usr/bin/env node
 
 const cli = require("commander");
-const schedule = require("node-schedule");
-const { DateTime } = require("luxon");
 const checkIn = require("./index");
 
 cli
@@ -17,17 +15,4 @@ cli
   .option("-p, --phoneNumber <num>", "Your phone number")
   .parse(process.argv);
 
-const { confirmationNumber, date, firstName, lastName, phoneNumber } = cli;
-
-if (date) {
-  try {
-    schedule.scheduleJob(
-      DateTime.fromISO(date),
-      checkIn(confirmationNumber, firstName, lastName)
-    );
-  } catch (e) {
-    console.error(e);
-  }
-} else {
-  checkIn(confirmationNumber, firstName, lastName);
-}
+checkIn(cli);

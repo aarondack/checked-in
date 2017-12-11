@@ -1,5 +1,24 @@
 const puppeteer = require("puppeteer");
 const utils = require("./utils.js");
+const schedule = require("node-schedule");
+const { DateTime } = require("luxon");
+
+function main(args) {
+  const { confirmationNumber, date, firstName, lastName, phoneNumber } = args;
+  if (date) {
+    try {
+      schedule.scheduleJob(
+        DateTime.fromISO(date).minus({ days: 1 }),
+        checkIn(confirmationNumber, firstName, lastName, phoneNumber)
+      );
+      utils.success("You have successfully scheduled your check-in");
+    } catch (e) {
+      utils.error(e);
+    }
+  } else {
+    checkIn(confirmationNumber, firstName, lastName, phoneNumber);
+  }
+}
 
 async function checkIn(confirmationNumber, firstName, lastName, phoneNumber) {
   const browser = await puppeteer.launch({ headless: false });
@@ -27,4 +46,4 @@ async function checkIn(confirmationNumber, firstName, lastName, phoneNumber) {
   await browser.close();
 }
 
-module.exports = checkIn;
+module.exports = main;
