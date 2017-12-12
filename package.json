@@ -1,6 +1,6 @@
 {
   "name": "checked-in",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Check in to your southwest flights",
   "main": "index.js",
   "repository": "git@github.com:aarondack/checked-in.git",
