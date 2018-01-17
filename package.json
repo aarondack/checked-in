@@ -13,7 +13,7 @@
     "chalk": "^2.3.0",
     "commander": "^2.12.2",
     "luxon": "^0.2.7",
-    "node-schedule": "^1.2.5",
+    "node-cron": "^1.2.1",
     "puppeteer": "^0.13.0"
   }
 }

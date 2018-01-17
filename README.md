@@ -18,7 +18,7 @@ In order to use checked-in make sure that you have Node v7.6.0 or greater
 
 # Options
 
-`-c <confirmationNumber>` or `--confirmationNumber <confirmationNumber>` 
+`-c <confirmationNumber>` or `--confirmationNumber <confirmationNumber>`
 <br>
 `-d <date>` or `--date <date>` (Currently needs to be a ISO 8601 string)
 <br>

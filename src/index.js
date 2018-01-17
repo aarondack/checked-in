@@ -1,27 +1,30 @@
 const puppeteer = require("puppeteer");
 const utils = require("./utils.js");
-const schedule = require("node-schedule");
 const { DateTime } = require("luxon");
+const CronJob = require("cron").CronJob;
 
 function main(args) {
   const { confirmationNumber, date, firstName, lastName, phoneNumber } = args;
   if (date) {
     try {
-      schedule.scheduleJob(
-        DateTime.fromISO(date).minus({ days: 1 }),
-        checkIn(confirmationNumber, firstName, lastName, phoneNumber)
+      const job = new CronJob({
+        date,
+        onTick: () =>
+          checkIn(confirmationNumber, firstName, lastName, phoneNumber),
+        start: true
+      });
+
+      utils.success(
+        "You have successfully scheduled your check-in. Have fun in the window or aisle!"
       );
-      utils.success("You have successfully scheduled your check-in");
-    } catch (e) {
-      utils.error(e);
+    } catch (error) {
+      utils.error(error);
     }
-  } else {
-    checkIn(confirmationNumber, firstName, lastName, phoneNumber);
   }
 }
 
 async function checkIn(confirmationNumber, firstName, lastName, phoneNumber) {
-  const browser = await puppeteer.launch({ headless: false });
+  const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
   await page.goto(utils.SOUTHWEST_URL, { waitUntil: "networkidle2" });
 
@@ -37,12 +40,10 @@ async function checkIn(confirmationNumber, firstName, lastName, phoneNumber) {
   });
 
   await utils.sleep(8000);
-  if (phoneNumber) {
-    await page.click(".boarding-pass-options--button-text", { delay: 500 });
-    await page.type("#textBoardingPass", phoneNumber, { delay: 100 });
-    await page.click("#form-mixin--submit-button", { delay: 200 });
-  }
 
+  await page.click(".boarding-pass-options--button-text", { delay: 500 });
+  await page.type("#textBoardingPass", phoneNumber, { delay: 100 });
+  await page.click("#form-mixin--submit-button", { delay: 200 });
   await browser.close();
 }
 
