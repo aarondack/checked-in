@@ -30,4 +30,4 @@ In order to use checked-in make sure that you have Node v7.6.0 or greater
 
 ### Example Usage
 
-`checked-in -c ABC123 -f John -l Smith -p 7503521234 -d 02/20/18 06:15:00T08:30:00`
+<img src="./example.png">
